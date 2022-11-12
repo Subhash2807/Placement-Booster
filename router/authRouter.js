@@ -43,6 +43,31 @@ router.post('/register',async (req,res)=>{
     if( !name || !password || !userType){
         res.send("please fill all fields");
     }
+    else if(userType=='admin'){
+        if(secret!=process.env.ADMIN_SECRET){
+            res.send("secret key is incorrect");
+        }
+        else{
+            try{
+                var user = await User.findOne({email});
+                if(user){
+                    console.log(user);
+                    res.send("user exits");
+                }
+                else{
+                    user = new User({name,email,password,userType});
+                    const result = await user.save();
+                    req.flash('success_message',"coaching registered successfully....")
+                    res.redirect('/')
+                }
+    
+            }
+            catch(e){
+                res.redirect('/login');
+                throw new Error(e);
+            }
+        }
+    }
     else
     { 
         try{

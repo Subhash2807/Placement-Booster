@@ -1,4 +1,4 @@
-<h1>signup page</h1>
+<!-- <h1>signup page</h1>
 
 <form action="/register" method="post">
     <h1>Signup</h1>
@@ -16,4 +16,34 @@
         <label for="secret">SECRET</label><br>
         <input type="password" name="secret" id="secret"><br><br>
         <button type="submit">Signup</button>
+</form> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="./css/loginstyle.css">
+</head>
+<body>
+
+    <form action="/register" method="post">
+	<div class="form-container">
+		<ul class="list">
+			<li><h2>Sign Up</h2></li>
+			<li><input type="text" name="name" placeholder="User Name"></li>
+			<li><input type="email" name="email" placeholder="Enter Email address"></li>
+			<li><input type="password" name="password" placeholder="Enter password"></li>
+            <li><select name="userType" id="type">
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+            </select></li>
+			<li><input type="password" name="secret" placeholder="Admin secret"></li>
+			<li><input type="submit" name="Register" onclick="" value="Register"></li>
+			<li><h3>Already a User?</h3></li>
+			<li><input type="button" name="Login" onclick="location.href='login'" value="Log In"></li>
+		</ul>
+	</div>
 </form>
+</body>
+</html>
