@@ -1,22 +1,22 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    let totalQuestion=5;
+    let totalQuestion=2;
     var count = 0;
     var score = 0;
     var prev = -1;
+    const url = window.location.href;
+    const origin = window.location.origin;
+    const subject = url.split('?')[1].split('=')[1];
+    console.log(subject);
+    console.log(window.location.href);
     async function getQuestion(){
-        const question = await axios.get("http://localhost:3000/home/get-question");
+        const question = await axios.post(origin+"/home/get-question",{subject});
         return question;
     }
-
+    async function saveScore(){
+        const r = await axios.post(origin+"/home/savescore",{score:score,subject:subject});
+    }
     async function nextQuestion(){
-        if(count==totalQuestion){
-            console.log("test over",score);
-            document.getElementById("score").hidden='';
-            document.getElementById("test").hidden='hidden';
-            document.getElementById("score").innerHTML="<h1>Score is "+score + '.';
-            return;
-        }
         if(count!=0){
             const radioOptions = document.querySelectorAll("input[type=radio]");
             radioOptions.forEach(option=>{
@@ -26,10 +26,19 @@
                 }
                 option.checked=false;
             })
-            console.log(radioOptions);
         }
-        const question = await getQuestion();
         count++;
+        if(count>totalQuestion){
+            console.log("test over",score);
+            document.getElementById("score").hidden='';
+            document.getElementById("test").hidden='hidden';
+            document.getElementById("score").innerHTML="<h1>Score is "+score + '.';
+            saveScore();
+            return;
+        }
+        
+        const question = await getQuestion();
+        
         console.log(question.data)
         prev = question.data.correct;
         document.getElementById('qno').innerText=count;
@@ -48,7 +57,6 @@
     
 </script>
 <body>
-    
 
     <div id="start">
         <button onclick="startTest()"> Start Test </button>

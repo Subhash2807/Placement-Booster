@@ -34,6 +34,7 @@ module.exports = function(passport){
 
  passport.deserializeUser((id,cb)=>{
      User.findById(id,(err,user)=>{
+        user.password=undefined
          cb(err,user)
      })
  })

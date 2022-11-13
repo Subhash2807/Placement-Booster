@@ -1,7 +1,45 @@
 <h1>Home</h1>
 
 <% if(typeof user.name != 'undefined'){%>
+
 <%= user.name %>
 <% } %> 
-
 <a href="/logout">Logout</a>
+<!-- <a href="">MCQs</a>
+<a href="">Flash cards</a>
+<a href="">Notes</a> -->
+<div id="links">
+    <div id="mcqs">
+        <h1>MCQs</h1>
+        <div>
+            <ul>
+                <li><a href="/home/take-test?subject=oops">oops</a></li>
+                <li><a href="/home/take-test?subject=dbms">DBMS</a></li>
+                <li><a href="/home/take-test?subject=os">os</a></li>
+                <li><a href="/home/take-test?subject=ds">Data Structure</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="flash">
+        <h1>Flash Cards</h1>
+        <div>
+            <ul>
+                <li><a href="">oops</a></li>
+                <li><a href="">DBMS</a></li>
+                <li><a href="">os</a></li>
+                <li><a href="">Data Structure</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="Notes">
+        <h1>Notes</h1>
+        <div>
+            <ul>
+                <li><a href="">oops</a></li>
+                <li><a href="">DBMS</a></li>
+                <li><a href="">os</a></li>
+                <li><a href="">Data Structure</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
