@@ -1,13 +1,22 @@
-<form action="/add-question" method="post">
+<form action="/admin/add-question" method="post">
     <label for="question">Question</label><br>
-    <input type="text-area" name="question" id="question"><br>
+    <textarea type="text-area" name="question" id="question"></textarea><br>
     <label for="op1">option 1</label><br>
     <input type="text" name="op1" id="op1"><br>
     <label for="op2">option 2</label><br>
     <input type="text" name="op2" id="op2"><br>
-    <label for="op1">option 3</label><br>
+    <label for="op3">option 3</label><br>
     <input type="text" name="op3" id="op3"><br>
-    <label for="op1">option 4</label><br>
+    <label for="op4">option 4</label><br>
     <input type="text" name="op4" id="op4"><br>
+    <label for="correct">correct option</label><br>
+    <input type="text" name="correct" id="correct"><br>
+    <label for="subject">Subject</label>
+    <select name="subject" id="subject">
+        <option value="oops">oops</option>
+        <option value="dbms">DBMS</option>
+        <option value="ds">DS</option>
+        <option value="os">OS</option>
+    </select>
     <button type="submit">Submit</button>
 </form>
