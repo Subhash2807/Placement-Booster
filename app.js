@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path')
-
+const cors = require('cors')
 require('dotenv').config();
 require('./db/connect')
 const app = express();
+app.use(cors());
 const authRouter = require('./router/authRouter')
 const adminRouter = require('./router/adminRouter')
 const userRouter = require('./router/userRouter')

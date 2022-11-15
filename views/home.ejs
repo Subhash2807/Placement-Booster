@@ -1,13 +1,31 @@
-<h1>Home</h1>
 
-<% if(typeof user.name != 'undefined'){%>
-
-<%= user.name %>
-<% } %> 
-<a href="/logout">Logout</a>
 <!-- <a href="">MCQs</a>
 <a href="">Flash cards</a>
 <a href="">Notes</a> -->
+<!-- <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    
+    }
+    
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    
+    tr:nth-child(even) {
+    
+      background-color: #dddddd;
+    
+    }
+    
+    </style>
+<body>
 <div id="links">
     <div id="mcqs">
         <h1>MCQs</h1>
@@ -43,3 +61,202 @@
         </div>
     </div>
 </div>
+
+<div id="scores">
+    <h2>Previous test scores</h2>
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Subject</th>
+            <th>Score</th>
+        </tr>
+        
+            <% user.scores.forEach((score,ind)=>{ %>
+                <tr>
+                    <td><%=ind+1%></td>
+                    <td><%=score.subject%></td>
+                    <td><%=score.marks%></td>
+                </tr>
+            <% }) %> 
+        
+    </table>
+</div>
+
+</body> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="whole">
+        <div class="main2">
+            <h1>Placement Booster</h1>
+            <div class="navbar">
+                <h1>name</h1>
+                <a href="#">Log Out</a>
+            </div>
+        </div>
+
+
+
+        <div class="intro">
+            <H2 class="two">MCQ Test</H2> <br>
+
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    
+                    <a href="/home/take-test?subject=oops"><h2 class="blue">OOPs</h2></a>
+                </div>
+            </div>
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href="/home/take-test?subject=dbms"><h2 class="blue">DBMS</h2></a>
+                    
+                </div>
+            </div>
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href="/home/take-test?subject=os"><h2 class="blue">OS</h2></a>
+                    
+                </div>
+            </div>
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href="/home/take-test?subject=ds"><h2 class="blue">Data Structure</h2></a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="intro">
+            <H2 class="two">Flash Card</H2> <br>
+
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    
+                    <a href=""><h2 class="blue">OOPs</h2></a>
+                </div>
+            </div>
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href=""><h2 class="blue">DBMS</h2></a>
+                    
+                </div>
+            </div>
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href=""><h2 class="blue">OS</h2></a>
+                    
+                </div>
+            </div>
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href=""><h2 class="blue">Data Structure</h2></a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="intro">
+            <H2 class="two">Notes</H2> <br>
+
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    
+                    <a href=""><h2 class="blue">OOPs</h2></a>
+                </div>
+            </div>
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href=""><h2 class="blue">DBMS</h2></a>
+                    
+                </div>
+            </div>
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href=""><h2 class="blue">OS</h2></a>
+                    
+                </div>
+            </div>
+
+
+
+            <div class="box1">
+                <div class="boxes">
+                    <a href=""><h2 class="blue">Data Structure</h2></a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="scores">
+            <h2>Previous test scores</h2>
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Subject</th>
+                    <th>Score</th>
+                </tr>
+                
+                    <% user.scores.forEach((score,ind)=>{ %>
+                        <tr>
+                            <td><%=ind+1%></td>
+                            <td><%=score.subject%></td>
+                            <td><%=score.marks%></td>
+                        </tr>
+                    <% }) %> 
+                
+            </table>
+        </div>
+        
+
+
+       
+
+
+
+    </div>
+    
+</body>
+
+</html>
