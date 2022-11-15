@@ -1,8 +1,8 @@
+
 .whole
 {
   height: 100%;
   width: 100%;
-  
 } 
 table {
     font-family: arial, sans-serif;
@@ -25,10 +25,9 @@ table {
   } 
 
 html, body {
-    height: 100%;
-    width: 100%;
-    display: flex;
-  flex-wrap: wrap;
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
 }
 .main
 {
@@ -443,4 +442,8 @@ padding-left: 600px;
 .last p{
   color: #d1eced;
   padding: 15px 100px 25px 120px;
+}
+
+body {
+  margin: 0 auto !important;
 }

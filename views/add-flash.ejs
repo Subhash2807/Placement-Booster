@@ -1,26 +1,3 @@
-<!-- <form action="/admin/add-question" method="post">
-    <label for="question">Question</label><br>
-    <textarea type="text-area" name="question" id="question"></textarea><br>
-    <label for="op1">option 1</label><br>
-    <input type="text" name="op1" id="op1"><br>
-    <label for="op2">option 2</label><br>
-    <input type="text" name="op2" id="op2"><br>
-    <label for="op3">option 3</label><br>
-    <input type="text" name="op3" id="op3"><br>
-    <label for="op4">option 4</label><br>
-    <input type="text" name="op4" id="op4"><br>
-    <label for="correct">correct option</label><br>
-    <input type="text" name="correct" id="correct"><br>
-    <label for="subject">Subject</label>
-    <select name="subject" id="subject">
-        <option value="oops">oops</option>
-        <option value="dbms">DBMS</option>
-        <option value="ds">DS</option>
-        <option value="os">OS</option>
-    </select>
-    <button type="submit">Submit</button>
-</form> -->
-
 <link rel="stylesheet" type="text/css" href="/css/addQuestion.css">
 <body>
     <div class="login-root">
@@ -59,42 +36,38 @@
         </div>
         <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
           <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-            <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Add Question</a></h1>
+            <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Add Flash</a></h1>
           </div>
           <div class="formbg-outer">
             <div class="formbg">
               <div class="formbg-inner padding-horizontal--48">
-                <span class="padding-bottom--15">Sign in to your account</span>
-                <form id="stripe-login" action="/admin/add-question" method="post">
+                <span class="padding-bottom--15">Add flash cards</span>
+                <form id="stripe-login" action="/admin/add-flash" method="post">
                   <div class="field padding-bottom--24">
-                    <label for="question">Question</label><br>
-                    <textarea type="text" name="question" id="question"></textarea><br>
+                    <label for="question">heading</label><br>
+                    <input type="text" name="heading" id="heading"><br>
                   </div>
 
                   <div class="field padding-bottom--24">
-                    <label for="op1">option 1</label><br>
-                    <input type="text" name="op1" id="op1"><br>
+                    <label for="main">Main content</label><br>
+                    <textarea type="text" name="main" id="main"></textarea><br>
                   </div>
                   
                   <div class="field padding-bottom--24">
-                    <label for="op2">option 2</label><br>
-                    <input type="text" name="op2" id="op2"><br>
+                    <label for="p1">point 1</label><br>
+                    <input type="text" name="p1" id="p1"><br>
                   </div>
                   
                   <div class="field padding-bottom--24">
-                    <label for="op3">option 3</label><br>
-                    <input type="text" name="op3" id="op3"><br>
+                    <label for="p2">point 2</label><br>
+                    <input type="text" name="p2" id="p2"><br>
                   </div>
                   
                   <div class="field padding-bottom--24">
-                    <label for="op4">option 4</label><br>
-                    <input type="text" name="op4" id="op4"><br>
+                    <label for="p3">point 3</label><br>
+                    <input type="text" name="p3" id="p3"><br>
                   </div>
 
-                  <div class="field padding-bottom--24">
-                    <label for="correct">correct option</label><br>
-                    <input type="text" name="correct" id="correct"><br>
-                  </div>
 
                   <div class="field padding-bottom--24">
                     <label for="subject">Subject</label>

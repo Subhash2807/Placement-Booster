@@ -1,27 +1,22 @@
 const router = require('express').Router();
 const User = require('./../db/models/user')
 const Question = require('./../db/models/questions')
+const Flashcard = require('./../db/models/Flashcard')
 const {checkAuthenticated,loginCheck} = require('./middlewares/auth')
 
 router.get('/',checkAuthenticated,(req,res)=>{
-    // console.log(req.user);
     res.render('home',{user:req.user});
 })
 router.get('/take-test',(req,res)=>{
-    res.render("test");
+    res.render("test",{user:req.user});
 })
 router.post('/get-question',(req,res)=>{
     // console.log(req.body);
     Question.count().exec(function (err, count) {
 
-        // Get a random entry
         var random = Math.floor(Math.random() * count)
-      
-        // Again query all users but only fetch one offset by our random #
         Question.findOne({subject:req.body.subject}).skip(random).exec(
           function (err, result) {
-            // Tada! random user
-            // console.log(result) 
             res.send(result)
           })
       })
@@ -42,44 +37,23 @@ router.post('/savescore',checkAuthenticated,async(req,res)=>{
     res.render('login');
     
 })
-
-router.post('/get-flash',(req,res)=>{
-    res.send({data:[
-        {
-            Heading:"Deadlocks",
-            mainContent: "A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.",
-            points: [
-                "Deadlock is dead",
-                "Deadlock is lock",
-                "Deadlock should be avoided"
-            ]
-        },
-        {
-            Heading:"heading 2",
-            mainContent: "A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.A deadlock in OS is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. The four necessary conditions for a deadlock situation to occur are mutual exclusion, hold and wait, no preemption and circular set.",
-            points: [
-                "point1",
-                "point2",
-                "point3"
-            ]
-        },
-        {
-            Heading:"heading 3",
-            mainContent: "Main Content 3",
-            points: [
-                "point1",
-                "point2",
-                "point3"
-            ]
-        },{
-            Heading:"heading 3",
-            mainContent: "Main Content 3",
-            points: [
-                "point1",
-                "point2",
-                "point3"
-            ]
-        },
-    ]})
+// Flash handler
+router.post('/get-flash',async (req,res)=>{
+    try {
+        const flashs = await Flashcard.find({subject:req.body.subject});
+        res.send(flashs);
+    } catch (e) {
+        res.status(501);
+    }
 })
+
+router.get('/flashcards',(req,res)=>{
+    res.render('flashs');
+})
+
+
+
+
+
+
 module.exports = router;

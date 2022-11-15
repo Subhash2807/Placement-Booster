@@ -198,8 +198,19 @@ input[type="text"]{
     font-size: 20px;
     padding: 5px;
     border-radius: 7px;
-    
-    
+}
+
+
+
+.userName{
+    font-size: 30px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
 }
 
 
