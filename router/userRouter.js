@@ -14,7 +14,7 @@ router.post('/get-question',(req,res)=>{
     // console.log(req.body);
     Question.count().exec(function (err, count) {
 
-        var random = Math.floor(Math.random() * count)
+        var random = Math.floor(Math.random() * 5)
         Question.findOne({subject:req.body.subject}).skip(random).exec(
           function (err, result) {
             res.send(result)

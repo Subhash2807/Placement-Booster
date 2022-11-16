@@ -5,11 +5,12 @@ const origin = window.location.origin;
 const subject = url.split('?')[1].split('=')[1];
 let quizData = [];
 
-    for(let i=0;i<totalQuestion;i++){
+    for(let i=0;i<totalQuestion;){
 
         let data = await axios.post(origin+'/home/get-question',{subject})
         data = data.data
         console.log(data);
+        if(data)i++;
         quizData.push({id:i+1,
             question:data.question,
             options:[data.op1,data.op2,data.op3,data.op4],
