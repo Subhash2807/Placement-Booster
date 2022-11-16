@@ -10,8 +10,8 @@ let quizData = [];
         let data = await axios.post(origin+'/home/get-question',{subject})
         data = data.data
         console.log(data);
-        if(data)i++;
-        else{
+        if(data){
+            i++;
             quizData.push({id:i+1,
                 question:data.question,
                 options:[data.op1,data.op2,data.op3,data.op4],
