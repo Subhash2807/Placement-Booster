@@ -11,11 +11,13 @@ let quizData = [];
         data = data.data
         console.log(data);
         if(data)i++;
-        quizData.push({id:i+1,
-            question:data.question,
-            options:[data.op1,data.op2,data.op3,data.op4],
-            answer:data['op'+(Number(data.correct)+1)]
-        })
+        else{
+            quizData.push({id:i+1,
+                question:data.question,
+                options:[data.op1,data.op2,data.op3,data.op4],
+                answer:data['op'+(Number(data.correct)+1)]
+            })
+        }
         // console.log(quizData)
     }
 // })()

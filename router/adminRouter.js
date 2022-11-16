@@ -4,14 +4,14 @@ const User = require('../db/models/user');
 const Flashcard = require('../db/models/Flashcard');
 const router = require('express').Router();
 
-router.get('/',(req,res)=>{
+router.get('/',isAdmin,(req,res)=>{
     res.render("admin");
 })
 
-router.get('/add-question',(req,res)=>{
+router.get('/add-question',isAdmin,(req,res)=>{
     res.render('add-question');
 })
-router.post('/add-question',async (req,res)=>{
+router.post('/add-question',isAdmin,async (req,res)=>{
     const {question,op1,op2,op3,op4,correct,subject} = req.body;
     if(!question || !op1 || !op2 || !op3 || !op4 || !correct){
         res.send("fill all fields");
@@ -32,7 +32,7 @@ router.post('/add-question',async (req,res)=>{
 
 
 
-router.post('/add-flash',async (req,res)=>{
+router.post('/add-flash',isAdmin,async (req,res)=>{
     console.log(req.body);
     const data = req.body;
     // res.send("added");
@@ -50,7 +50,7 @@ router.post('/add-flash',async (req,res)=>{
     }
 })
 
-router.get('/add-flash-cards',(req,res)=>{
+router.get('/add-flash-cards',isAdmin,(req,res)=>{
     res.render('add-flash');
 })
 
