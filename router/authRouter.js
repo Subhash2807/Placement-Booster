@@ -57,14 +57,13 @@ router.post('/register',async (req,res)=>{
                 else{
                     user = new User({name,email,password,userType});
                     const result = await user.save();
-                    req.flash('success_message',"coaching registered successfully....")
                     res.redirect('/')
                 }
     
             }
             catch(e){
+                console.log(e);
                 res.redirect('/login');
-                throw new Error(e);
             }
         }
     }
