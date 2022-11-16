@@ -59,6 +59,8 @@ router.get('/logout', function(req, res, next){
   });
 
 
-
+router.get('/about',(req,res)=>{
+    res.render('about');
+})
 
 module.exports = router;
