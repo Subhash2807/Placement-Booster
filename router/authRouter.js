@@ -85,8 +85,9 @@ router.post('/register',async (req,res)=>{
 
         }
         catch(e){
+            console.log(e);
             res.redirect('/login');
-            throw new Error(e);
+            
         }
     }
 })
